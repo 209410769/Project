@@ -31,9 +31,11 @@ time_string = current_time.strftime("%H-%M")  # 使用橫線替代冒號
 # # 父資料夾名稱
 base_path = "RVR"
 
-parent_folder = rf"{base_path}\{date_string} {time_string}\RVR"
+# parent_folder = os.path.join(base_path, date_string + " " + time_string, 'RVR')
+parent_folder = os.path.join(base_path, date_string + " " + time_string, 'RVR')
 print(parent_folder)
-zip_folder_path = rf"{base_path}\{date_string} {time_string}\RVR_ZIP"
+# zip_folder_path = os.path.join(base_path, date_string + " " + time_string, 'RVR_ZIP')
+zip_folder_path = os.path.join(base_path, date_string + " " + time_string, 'RVR_ZIP')
 print(zip_folder_path)
 
 def real_estate_crawler(year, season):

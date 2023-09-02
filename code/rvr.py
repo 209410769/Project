@@ -1,13 +1,15 @@
+from datetime import datetime
 import pandas as pd
 import requests
 import os
 import zipfile
 import time
-
 from urllib3.exceptions import ConnectTimeoutError
-
 from tqdm import tqdm  # 引入 tqdm
+
 retry_interval = 50
+
+
 def real_estate_crawler_with_retry(year, season, max_retries=3):
     retries = 0
     while retries < max_retries:
@@ -21,22 +23,24 @@ def real_estate_crawler_with_retry(year, season, max_retries=3):
     else:
         print("無法建立連接，已超過最大重試次數。")
 
-from datetime import datetime
+
 current_datetime = datetime.now()
 current_date = current_datetime.date()  # 獲取日期部分
 current_time = current_datetime.time()  # 獲取時間部分
 # 將日期和時間轉換為字符串
 date_string = current_date.strftime("%Y-%m-%d")
 time_string = current_time.strftime("%H-%M")  # 使用橫線替代冒號
-# # 父資料夾名稱
-base_path = "RVR"
 
-# parent_folder = os.path.join(base_path, date_string + " " + time_string, 'RVR')
+# 資料存放的基本路徑
+base_path = "code/data"
+
+# 父資料夾名稱
 parent_folder = os.path.join(base_path, date_string + " " + time_string, 'RVR')
 print(parent_folder)
-# zip_folder_path = os.path.join(base_path, date_string + " " + time_string, 'RVR_ZIP')
-zip_folder_path = os.path.join(base_path, date_string + " " + time_string, 'RVR_ZIP')
+zip_folder_path = os.path.join(
+    base_path, date_string + " " + time_string, 'RVR_ZIP')
 print(zip_folder_path)
+
 
 def real_estate_crawler(year, season):
     if year > 1000:

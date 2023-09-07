@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Rvr from './page/Rvr';
 import './App.css'
-
+import Test from './page/Test';
 function App() {
   return (
     <Router>
@@ -14,8 +14,9 @@ function App() {
         </header>
         <Nav />
         <Routes>
-          <Route path="/rvr" element={<Rvr />} />
           <Route path="/" />
+          <Route path="/rvr" element={<Rvr />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
         <footer>
           &copy; TKU資工專題(實價登入)

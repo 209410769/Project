@@ -11,7 +11,6 @@ function Nav() {
                 <li>
                     <Link to="/rvr">實價登錄</Link>
                 </li>
-                <li><Link to="/test">test</Link></li>
                 {/* 添加其他導航連結 */}
             </ul>
         </nav>

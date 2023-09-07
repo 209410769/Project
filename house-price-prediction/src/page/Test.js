@@ -1,11 +1,9 @@
 import React from 'react'
-
-function test() {
+import DatabaseConnection from '../components/DatabaseConnection'
+function Test() {
   return (
-    <div>
-        test
-    </div>
+    <div><DatabaseConnection/></div>
   )
 }
 
-export default test
+export default Test

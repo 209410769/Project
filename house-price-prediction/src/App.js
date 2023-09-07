@@ -3,8 +3,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Rvr from './page/Rvr';
-import './App.css'
 import Test from './page/Test';
+import './App.css'
+
 function App() {
   return (
     <Router>

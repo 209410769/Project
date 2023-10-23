@@ -1,6 +1,7 @@
 import pandas as pd
 import psycopg2
 import os
+from datetime import datetime
 
 # 获取当前脚本所在的目录
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -27,13 +28,16 @@ selected_columns = [
 
 data = data[selected_columns]
 
+# 处理日期列，将文本日期转换为日期对象
+data['交易年月日'] = pd.to_datetime(data['交易年月日'], format='%Y%m%d', errors='coerce')
+
 # 设置数据库连接参数
 db_params = {
-    'dbname': 'postgres',  # 替换为您的数据库名称
-    'user': 'postgres',        # 替换为您的数据库用户名
-    'password': '0000',  # 替换为您的数据库密码
-    'host': 'localhost',        # 数据库服务器主机
-    'port': 5433                # 数据库服务器端口
+    'dbname': 'postgres',  # 数据库名称，根据您的数据库设置提供正确的名称
+    'user': 'postgres',    # 数据库用户名，根据您的数据库设置提供正确的用户名
+    'password': '0000',    # 数据库密码，根据您的数据库设置提供正确的密码
+    'host': 'localhost',   # 数据库服务器主机，如果数据库在本地运行，则使用 'localhost'，否则提供正确的主机地址
+    'port': 5433           # 数据库服务器端口，根据您的 PostgreSQL 服务器配置提供正确的端口号
 }
 
 # 建立数据库连接
